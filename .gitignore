@@ -5,11 +5,12 @@
 *.dSYM
 *.a
 *.so
+qemu-arm-static
 
 # ignore swap files for vim editing
 *.swp
 
-# build objects 
+# build objects
 autom4te.cache
 aclocal.m4
 

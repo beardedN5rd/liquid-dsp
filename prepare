@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+if ! [ -x "/usr/bin/qemu-arm-static" ]
+then
+        sudo apt update
+        sudo apt install -y binfmt-support qemu qemu-user-static
+        sudo modprobe binfmt_misc
+fi
+
+cp /usr/bin/qemu-arm-static .
+
+docker build -f Dockerfile -t liquid_dsp_builder:armhf_trusty .

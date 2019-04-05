@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+CONTAINER_NAME="redsea-$RANDOM"
+CMD=./do_build.sh
+
+
+docker run  -it \
+            --name ${CONTAINER_NAME} \
+            -v `pwd`:/workdir -w /workdir \
+            liquid_dsp_builder:armhf_trusty ${CMD}
+
+docker rm ${CONTAINER_NAME}
